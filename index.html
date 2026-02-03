@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Question</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #ff00cc, #3333ff, #00ffcc);
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      text-align: center;
+      color: white;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 40px;
+    }
+
+    .buttons {
+      position: relative;
+      width: 300px;
+      height: 120px;
+      margin: auto;
+    }
+
+    .btn {
+      width: 120px;
+      height: 60px;
+      line-height: 60px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border-radius: 10px;
+      cursor: pointer;
+      user-select: none;
+      position: absolute;
+      text-align: center;
+    }
+
+    .yes {
+      background: #00ff88;
+      color: #000;
+      left: 0;
+      top: 30px;
+    }
+
+    .no {
+      background: #ff4444;
+      color: #000;
+      right: 0;
+      top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>are you gay?</h1>
+
+    <div class="buttons">
+      <div class="btn yes" onclick="goYes()">Yes</div>
+      <div class="btn no" id="noBtn">No</div>
+    </div>
+  </div>
+
+  <script>
+    function goYes() {
+      window.location.href = "yes.html";
+    }
+
+    const noBtn = document.getElementById("noBtn");
+
+    noBtn.addEventListener("mouseenter", () => {
+      const parent = noBtn.parentElement;
+      const maxX = parent.clientWidth - noBtn.clientWidth;
+      const maxY = parent.clientHeight - noBtn.clientHeight;
+
+      noBtn.style.left = Math.random() * maxX + "px";
+      noBtn.style.top = Math.random() * maxY + "px";
+    });
+  </script>
+</body>
+</html>
